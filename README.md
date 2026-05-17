@@ -1,84 +1,95 @@
+
 # 🚀 Uber Eats Bangalore – Restaurant Intelligence & Decision Support System
 
-![Python](https://img.shields.io/badge/Python-3.9-blue)
-![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
-![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
+An end-to-end data analytics and business intelligence system designed to optimize restaurant performance marketplace logistics in Bangalore. This project processes multi-format raw data (CSV & JSON), implements dynamic analytical business logic strictly via SQL, and surfaces insights through an interactive Streamlit web dashboard.
 
- 📌 Project Overview
+## 🛠️ Project Architecture & Data Pipeline
 
-This project analyzes Uber Eats Bangalore restaurant data and builds a SQL-driven decision support system.
+```text
+Data Sources (orders.json & c_data.csv)
+      │
+      ▼
+Data Cleaning & Feature Engineering (Pandas / Jupyter Notebooks)
+      │
+      ▼
+Relational Database Layer (MySQL / restaurant.db)
+      │
+      ▼
+SQL Analytics Layer (Complex Queries, Joins, Aggregations)
+      │
+      ▼
+Interactive UI Dashboard (Streamlit App)
 
-- 📍 Location strategy  
-- 💰 Pricing optimization  
-- 🍜 Cuisine performance  
-- ⭐ Customer satisfaction  
-- 📲 Platform features  
+```
 
-🎯 Objective:
+---
 
-To design a scalable analytics system that:
-1.Uses SQL for all business logic
-2.Delivers accurate, structured insights
-3.Enables data-driven decision-making
+## 📂 Repository Structure
 
-⚙️ Project Architecture:
+* **`Dashboard.py`**: The main entry point for the Streamlit dashboard user interface.
+* **`json_file_cleaning.ipynb`**: Jupyter notebook handling raw JSON data flattening, missing value parsing, and preparation.
+* **`mini_project_mysql.ipynb`**: Notebook focusing on schema creation, data insertion, and drafting complex SQL analytical queries.
+* **`uber_eats_bangalore_mini_project.ipynb`**: Core exploratory data analysis (EDA) and early prototyping.
+* **`restaurant.db` / `c_data.csv` / `orders.json**`: The structured database and raw/cleaned datasets driving the application.
+* **`screenshots/`**: Visual documentation of the operational dashboard application.
 
+---
 
-Data Source (CSV + JSON)
-        ↓
-Data Cleaning (Pandas)
-        ↓
-Feature Engineering
-        ↓
-MySQL Database
-        ↓
-SQL Queries (Analytics Layer)
-        ↓
-Streamlit App (UI)
+## 🔧 Core Features & Implementation
 
+### 🔹 1. Dynamic Analytics Dashboard
 
-🧠 Skills & Technologies
-Python (Pandas, NumPy)
-MySQL (SQL Queries, GROUP BY, CASE WHEN)
-Streamlit (Data App Development)
-Data Cleaning & Feature Engineering
-Statistical Analysis
+* Fully integrated user interface using Streamlit.
+* Multi-dimensional data filtration capabilities by **Location**, **Cuisine Type**, **Customer Ratings**, and **Price Range**.
+* Efficient data extraction powered by an underlying SQL engine returning clean tabular data frames.
 
+### 🔹 2. SQL-Driven Q&A Intelligence Module
 
-🔧 Features
+Features a dedicated section answering over 10 critical operational business questions using raw SQL queries (`GROUP BY`, `CASE WHEN`, subqueries, and window functions):
 
-🔹 Dashboard Page
-1.Dynamic filters (location, cuisine, rating, price)
-2.SQL-based data retrieval
-3.DataFrame outputs only
+* **Location Strategy:** Identifying high-performing vs. heavily saturated culinary pockets.
+* **Pricing Optimization:** Evaluating price distributions to find sweet spots where ratings peak.
+* **Feature Impact:** Assessing how platform features like *Online Ordering* and *Table Booking* affect customer satisfaction scores.
 
+### 🔹 3. Semi-Structured Order Data Integration
 
-🔹 Q&A Module
-1.10+ business questions answered using SQL
-2.Clean tabular results
+* Built a custom pipeline to ingest, flatten, and normalize semi-structured `orders.json` files.
+* Relational conversion to SQL tables to allow side-by-side behavioral analysis matching restaurant profiles with transactional order histories.
 
+---
 
-🔹 Order Data Integration
-1.JSON → SQL table conversion
-2.Custom analytical queries on orders
+## 💼 Business Use Cases Addressed
 
+* **📍 Location Intelligence:** Pinpoints optimal expansion zones for scaling chains or cloud kitchens based on supply-demand density.
+* **💰 Pricing Matrix Strategy:** Analyzes market pricing segments to optimize menus for maximizing margins without shedding active customer ratings.
+* **🍜 Cuisine Mix & Performance:** Segments local high-volume mainstream cuisines against high-margin premium niche offerings.
+* **🤝 Partner Onboarding:** Provides data-backed consulting metrics to new culinary partners looking to sign onto the platform.
 
-📊 Key Business Insights:
+---
 
-📍 Identified top-performing & saturated locations
-💰 Mid-priced restaurants achieve highest ratings
-📲 Online ordering improves customer satisfaction
-🍽️ Table booking correlates with premium experience
-🍜 Found high-performing & niche cuisines
-📈 Built multi-factor success strategy
+## 🚀 Getting Started
 
+### 1. Prerequisites
 
-💼 Business Use Cases:
+Ensure you have Python 3.x installed along with a localized database environment setup. Install dependencies via pip:
 
-- 📍 Location Intelligence  
-- 💰 Pricing Strategy  
-- 🍽️ Cuisine Analysis  
-- 🤝 Partner Onboarding  
-- 😊 Customer Satisfaction  
-- 🚀 Expansion Planning  
+```bash
+pip install pandas numpy streamlit tabulate mysql-connector-python
+
+```
+
+### 2. Database Set Up & Data Cleaning
+
+Execute the data engineering pipeline notebooks to generate your localized database structures:
+
+1. Run `json_file_cleaning.ipynb` to structure the raw JSON orders.
+2. Run `mini_project_mysql.ipynb` to establish table schemas and populate your SQL tables.
+
+### 3. Launching the Dashboard App
+
+Boot up the Streamlit interface locally using the following terminal command:
+
+```bash
+streamlit run Dashboard.py
+
+``` 
